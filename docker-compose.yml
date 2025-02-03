@@ -10,28 +10,28 @@ services:
     networks:
       - app-network
 
-  backend:
+  server:
     build:
-      context: ./backend
+      context: server
       dockerfile: Dockerfile
     ports:
       - "5001:5001"
     environment:
-      - MONGODB_URI=mongodb://mongodb:27017/todo-app
+      - MONGODB_URI=mongodb://mongodb:27017/starter-kit
       - PORT=5001
     depends_on:
       - mongodb
     networks:
       - app-network
 
-  frontend:
+  client:
     build:
-      context: ./frontend
+      context: client
       dockerfile: Dockerfile
     ports:
       - "5173:5173"
     depends_on:
-      - backend
+      - server
     networks:
       - app-network
 

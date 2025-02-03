@@ -26,7 +26,7 @@ const config: Config = {
     env: process.env.NODE_ENV || 'development',
     port: parseInt(process.env.PORT || '5000', 10),
     mongodb: {
-        uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/todo-app',
+        uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/starter-kit',
         options: {
         },
     },

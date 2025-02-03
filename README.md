@@ -1,6 +1,6 @@
-# Todo App
+# Starter Kit App
 
-A full-stack Todo application built with React (Frontend) and Node.js/Express (Backend).
+A full-stack Todo application built with React (Client) and Node.js/Express (Server).
 
 ## Prerequisites
 
@@ -11,9 +11,9 @@ A full-stack Todo application built with React (Frontend) and Node.js/Express (B
 ## Project Structure
 
 ```
-todo-app/
-├── backend/         # Express/Node.js server
-├── frontend/        # React/Vite application
+starter-kit/
+├── server/         # Express/Node.js server
+├── client/        # React/Vite application
 └── docker-compose.yml
 ```
 
@@ -22,7 +22,7 @@ todo-app/
 1. **Clone the repository**
 ```bash
 git clone <repository-url>
-cd todo-app
+cd starter-kit
 ```
 
 2. **Start MongoDB**
@@ -32,21 +32,21 @@ docker run -d -p 27017:27017 --name todo-mongodb mongo:latest
 
 3. **Setup Environment Variables**
 
-In the backend directory, create `.env`:
+In the server directory, create `.env`:
 ```
 PORT=5001
-MONGODB_URI=mongodb://localhost:27017/todo-app
+MONGODB_URI=mongodb://localhost:27017/starter-kit
 JWT_SECRET=your-secret-key
 ```
 
 4. **Install Dependencies**
 ```bash
-# Install backend dependencies
-cd backend
+# Install server dependencies
+cd server
 npm install
 
-# Install frontend dependencies
-cd ../frontend
+# Install client dependencies
+cd ../client
 npm install
 ```
 
@@ -57,23 +57,23 @@ npm run dev
 ```
 
 The application will be available at:
-- Frontend: http://localhost:5173
-- Backend: http://localhost:5001
+- Client: http://localhost:5173
+- Server: http://localhost:5001
 - MongoDB: localhost:27017
 
 ## Available Scripts
 
 In the project root:
-- `npm run dev` - Runs both frontend and backend in development mode
-- `npm run install:all` - Installs dependencies for both frontend and backend
+- `npm run dev` - Runs both client and server in development mode
+- `npm run install:all` - Installs dependencies for both client and server
 
-In the backend directory:
+In the server directory:
 - `npm run dev` - Starts the development server
 - `npm run test` - Runs tests
 - `npm run lint` - Runs ESLint
 - `npm run lint:fix` - Fixes ESLint issues
 
-In the frontend directory:
+In the client directory:
 - `npm run dev` - Starts the Vite development server
 - `npm run test` - Runs tests
 - `npm run lint` - Runs ESLint
@@ -81,7 +81,7 @@ In the frontend directory:
 
 ## Technologies Used
 
-Frontend:
+Client:
 - React
 - TypeScript
 - Vite
@@ -89,7 +89,7 @@ Frontend:
 - React Query
 - React Router
 
-Backend:
+Server:
 - Node.js
 - Express
 - TypeScript
@@ -112,5 +112,5 @@ Current features implemented:
 Next steps:
 - Implement authentication
 - Create Todo CRUD operations
-- Design and implement frontend UI
+- Design and implement client UI
 - Add testing
