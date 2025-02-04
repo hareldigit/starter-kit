@@ -4,7 +4,7 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "vite-node src/app.ts",
+    "dev": "vite-node src/server.ts",
     "build": "tsc && vite build",
     "test": "vitest",
     "coverage": "vitest run --coverage",
