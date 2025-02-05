@@ -1,7 +1,8 @@
 import { Model } from 'mongoose';
 import { IBaseService } from '@/types/base';
+import { Document } from 'mongoose';
 
-export abstract class BaseService<T> implements IBaseService<T> {
+export abstract class BaseService<T extends Document> implements IBaseService<T> {
     protected constructor(protected model: Model<T>) {}
 
     async create(data: Partial<T>): Promise<T> {
