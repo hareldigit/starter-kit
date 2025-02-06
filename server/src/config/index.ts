@@ -1,5 +1,6 @@
 import dotenv from 'dotenv'
 import { ConnectOptions } from 'mongoose'
+import {get} from 'lodash-es'
 
 dotenv.config({
     path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
@@ -43,18 +44,16 @@ const config: Config = {
 const validateConfig = (config: Config) => {
     const requiredFields = ['mongodb.uri', 'jwt.secret']
 
-    for (const field of requiredFields) {
-        const value = field.split('.').reduce((obj, key) => obj?.[key], config as any)
-        if (!value) {
-            throw new Error(`Missing required config field: ${field}`)
-        }
+    const missingConfigs = requiredFields.filter(field => !get(config, field));
+    if (missingConfigs.length > 0) {
+        throw new Error(`Missing required configs: ${missingConfigs.join(', ')}`);
     }
 }
 
 try {
     validateConfig(config)
 } catch (error) {
-    console.error('Config validation failed:', error)
+    console.error('Config validation:', error)
     process.exit(1)
 }
 
