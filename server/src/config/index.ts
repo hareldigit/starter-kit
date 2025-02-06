@@ -1,10 +1,5 @@
-import dotenv from 'dotenv'
 import { ConnectOptions } from 'mongoose'
-import {get} from 'lodash-es'
-
-dotenv.config({
-    path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env',
-})
+import { get } from 'lodash-es'
 
 interface Config {
     env: string;
@@ -24,19 +19,18 @@ interface Config {
 }
 
 const config: Config = {
-    env: process.env.NODE_ENV || 'development',
-    port: parseInt(process.env.PORT || '5000', 10),
+    env: import.meta.env.MODE,
+    port: parseInt(import.meta.env.PORT || '5000', 10),
     mongodb: {
-        uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/starter-kit',
-        options: {
-        },
+        uri: import.meta.env.MONGODB_URI || 'mongodb://localhost:27017/starter-kit',
+        options: {},
     },
     jwt: {
-        secret: process.env.JWT_SECRET || 'your-secret-key',
+        secret: import.meta.env.JWT_SECRET || 'your-secret-key',
         expiresIn: '1d',
     },
     cors: {
-        origin: (process.env.CORS_ORIGIN || 'http://localhost:3000').split(','),
+        origin: (import.meta.env.VITE_CORS_ORIGIN || 'http://localhost:3000').split(','),
         credentials: true,
     },
 }

@@ -14,6 +14,6 @@ const startServer = async () => {
     }
 };
 
-if (process.env.NODE_ENV !== 'test') {
+if (import.meta.env.MODE !== 'test') {
     startServer();
 }

@@ -9,6 +9,7 @@
     "strict": true,
     "skipLibCheck": true,
     "baseUrl": ".",
+    "types": ["vite/client"],
     "paths": {
       "@/*": ["src/*"],
       "@shared/*": ["../shared/*"]
