@@ -1,5 +1,5 @@
 import { app } from './app';
-import { connectDB } from './config/db';
+import { connectDB } from './db';
 import config from './config';
 
 const startServer = async () => {
@@ -14,6 +14,6 @@ const startServer = async () => {
     }
 };
 
-if (process.env.NODE_ENV !== 'test') {
+if (import.meta.env.MODE !== 'test') {
     startServer();
 }

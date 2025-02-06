@@ -1,12 +1,13 @@
 import { beforeAll, afterAll, afterEach } from 'vitest'
 import mongoose from 'mongoose'
-import dotenv from 'dotenv'
 
-dotenv.config({ path: '.env.test' })
+if (import.meta.env.MODE !== 'test') {
+    console.warn(`Warning: Tests are running in ${import.meta.env.MODE} mode instead of test mode`)
+}
 
 beforeAll(async () => {
-    if (process.env.MONGODB_URI) {
-        await mongoose.connect(process.env.MONGODB_URI)
+    if (import.meta.env.MONGODB_URI) {
+        await mongoose.connect(import.meta.env.MONGODB_URI)
     }
 })
 
