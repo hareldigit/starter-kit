@@ -24,7 +24,6 @@ interface Config {
 let config: Config | null = null;
 
 const loadConfig = (): Config => {
-    console.log('process.env.NODE_ENV >>>',process.env.NODE_ENV)
     dotenv.config({  path: `.env${process.env.NODE_ENV === 'test' ? '.test' : ''}`});
 
     const envConfig = {

@@ -85,7 +85,7 @@ In the project root:
 In the server directory:
 - `npm run dev` - Starts the development server using tsx watch
 - `npm build` - Builds the TypeScript code to JavaScript
-- `npm start` - Runs the built JavaScript code in production mode
+- `npm start` - Runs the built JavaScript code in production mode using tsx
 - `npm run test` - Runs tests using Jest
 - `npm run lint` - Runs ESLint
 - `npm run lint:fix` - Fixes ESLint issues
