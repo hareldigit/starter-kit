@@ -28,7 +28,7 @@ The project uses different development setups for client and server:
 
 ### Server
 - Standard Node.js TypeScript setup
-- Development using ts-node
+- Development using tsx
 - Production build using TypeScript compiler (tsc)
 - Testing with Jest
 
@@ -83,7 +83,7 @@ In the project root:
 - `npm run install:all` - Installs dependencies for both client and server
 
 In the server directory:
-- `npm run dev` - Starts the development server using ts-node
+- `npm run dev` - Starts the development server using tsx watch
 - `npm build` - Builds the TypeScript code to JavaScript
 - `npm start` - Runs the built JavaScript code in production mode
 - `npm run test` - Runs tests using Jest
