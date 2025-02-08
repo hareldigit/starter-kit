@@ -52,6 +52,7 @@ In the server directory, create `.env`:
 PORT=5001
 MONGODB_URI=mongodb://localhost:27017/starter-kit
 JWT_SECRET=your-secret-key
+NODE_ENV=''
 ```
 
 4. **Install Dependencies**
