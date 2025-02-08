@@ -1,9 +1,11 @@
 import { app } from './app';
 import { connectDB } from './db';
-import config from './config';
+import {getConfig} from './config';
+import * as process from "node:process";
 
 const startServer = async () => {
     try {
+        const config = getConfig();
         await connectDB();
         app.listen(config.port, () => {
             console.info(`Server running in ${config.env} mode on port ${config.port}`);
@@ -14,6 +16,6 @@ const startServer = async () => {
     }
 };
 
-if (import.meta.env.MODE !== 'test') {
+if (process.env.NODE_ENV !== 'test') {
     startServer();
 }
