@@ -7,8 +7,6 @@ services:
       - "27017:27017"
     volumes:
       - mongodb_data:/data/db
-    networks:
-      - app-network
 
   server:
     build:
@@ -21,8 +19,6 @@ services:
       - PORT=5001
     depends_on:
       - mongodb
-    networks:
-      - app-network
 
   client:
     build:
@@ -32,12 +28,6 @@ services:
       - "5173:5173"
     depends_on:
       - server
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
 
 volumes:
   mongodb_data:
