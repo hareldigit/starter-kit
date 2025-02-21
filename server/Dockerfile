@@ -19,5 +19,9 @@ RUN npm install --production
 
 COPY --from=builder /app/dist ./dist
 
+# TODO: Create a proper .env file on the server with required environment variables (JWT_SECRET, etc.)
+# and then remove this COPY instruction
+#COPY .env ./
+
 EXPOSE 5001
-CMD ["node", "dist/server.js"]
+CMD ["npm", "run", "start"]
