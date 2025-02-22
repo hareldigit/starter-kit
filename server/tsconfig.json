@@ -2,14 +2,18 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "noEmit": true,
-    "moduleResolution": "Bundler",
+    "noEmit": false,
+    "moduleResolution": "Node",
+    "outDir": "dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "skipLibCheck": true,
     "baseUrl": ".",
-    "types": ["vite/client"],
+    "types": [
+      "node",
+      "jest"
+    ],
     "paths": {
       "@/*": ["src/*"],
       "@shared/*": ["../shared/*"]

@@ -1,5 +1,8 @@
 import { ConnectOptions } from 'mongoose'
 import { get } from 'lodash-es'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 interface Config {
     env: string;
@@ -18,37 +21,52 @@ interface Config {
     };
 }
 
-const config: Config = {
-    env: import.meta.env.MODE,
-    port: parseInt(import.meta.env.PORT || '5000', 10),
-    mongodb: {
-        uri: import.meta.env.MONGODB_URI || 'mongodb://localhost:27017/starter-kit',
-        options: {},
-    },
-    jwt: {
-        secret: import.meta.env.JWT_SECRET || 'your-secret-key',
-        expiresIn: '1d',
-    },
-    cors: {
-        origin: (import.meta.env.VITE_CORS_ORIGIN || 'http://localhost:3000').split(','),
-        credentials: true,
-    },
+let config: Config | null = null;
+
+const loadConfig = (): Config => {
+    dotenv.config({  path: `.env${process.env.NODE_ENV === 'test' ? '.test' : ''}`});
+
+    const envConfig = {
+        env: process.env.NODE_ENV || 'development',
+        port: parseInt(process.env.PORT || '5000', 10),
+        mongodb: {
+            uri: process.env.MONGODB_URI || '',
+            options: {},
+        },
+        jwt: {
+            secret: process.env.JWT_SECRET || '',
+            expiresIn: '1d',
+        },
+        cors: {
+            origin: (process.env.CORS_ORIGIN || 'http://localhost:3000').split(','),
+            credentials: true,
+        },
+    }
+    validateConfig(envConfig);
+    return envConfig;
 }
 
 const validateConfig = (config: Config) => {
-    const requiredFields = ['mongodb.uri', 'jwt.secret']
+    const requiredFields = ['mongodb.uri', 'jwt.secret'] as const;
 
-    const missingConfigs = requiredFields.filter(field => !get(config, field));
+    const missingConfigs = requiredFields.filter(field => {
+        const value = get(config, field);
+        return !value || value.trim() === '';
+    });
     if (missingConfigs.length > 0) {
         throw new Error(`Missing required configs: ${missingConfigs.join(', ')}`);
     }
 }
 
-try {
-    validateConfig(config)
-} catch (error) {
-    console.error('Config validation:', error)
-    process.exit(1)
-}
+export const getConfig = (): Config => {
+    if (config === null) {
+        try {
+            config = loadConfig();
+        } catch (error) {
+            console.error('Config validation:', error)
+            process.exit(1)
+        }
+    }
 
-export default config
+    return config;
+};

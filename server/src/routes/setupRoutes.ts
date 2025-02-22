@@ -3,7 +3,7 @@ import {router as todoRouter} from './todoRoutes';
 import { healthCheck } from '@/controllers/healthController';
 
 export const setupRoutes = (app: express.Application) => {
-    app.get('/health', healthCheck);
+    app.get('/api/health', healthCheck);
 
     app.use('/api/todo', todoRouter);
 

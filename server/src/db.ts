@@ -1,8 +1,9 @@
 import mongoose from 'mongoose'
-import config from './config'
+import {getConfig} from './config'
 
 export const connectDB = async () => {
     try {
+        const config = getConfig();
         await mongoose.connect(config.mongodb.uri)
         console.log(`MongoDB Connected to ${config.env} database`)
     } catch (error) {

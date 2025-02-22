@@ -1,0 +1,27 @@
+services:
+  mongodb:
+    image: mongo:latest
+    volumes:
+      - mongodb_data:/data/db
+
+  server:
+    build:
+      context: server
+      dockerfile: Dockerfile
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/starter-kit
+      - PORT=5001
+    depends_on:
+      - mongodb
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    ports:
+      - "8082:80"
+    depends_on:
+      - server
+
+volumes:
+  mongodb_data:

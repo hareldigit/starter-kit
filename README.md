@@ -13,9 +13,24 @@ A full-stack Todo application built with React (Client) and Node.js/Express (Ser
 ```
 starter-kit/
 ├── server/         # Express/Node.js server
-├── client/        # React/Vite application
+├── client/         # React/Vite application
 └── docker-compose.yml
 ```
+
+## Project setups
+
+The project uses different development setups for client and server:
+
+### Client
+- Uses Vite as the build tool and development server
+- Testing with Vitest
+- Hot Module Replacement (HMR) for fast development
+
+### Server
+- Standard Node.js TypeScript setup
+- Development using tsx
+- Production build using TypeScript compiler (tsc)
+- Testing with Jest
 
 ## Getting Started
 
@@ -37,6 +52,7 @@ In the server directory, create `.env`:
 PORT=5001
 MONGODB_URI=mongodb://localhost:27017/starter-kit
 JWT_SECRET=your-secret-key
+NODE_ENV=''
 ```
 
 4. **Install Dependencies**
@@ -68,8 +84,10 @@ In the project root:
 - `npm run install:all` - Installs dependencies for both client and server
 
 In the server directory:
-- `npm run dev` - Starts the development server
-- `npm run test` - Runs tests
+- `npm run dev` - Starts the development server using tsx watch
+- `npm build` - Builds the TypeScript code to JavaScript
+- `npm start` - Runs the built JavaScript code in production mode using tsx
+- `npm run test` - Runs tests using Jest
 - `npm run lint` - Runs ESLint
 - `npm run lint:fix` - Fixes ESLint issues
 
@@ -85,6 +103,7 @@ Client:
 - React
 - TypeScript
 - Vite
+- Vitest
 - TailwindCSS
 - React Query
 - React Router
@@ -95,11 +114,11 @@ Server:
 - TypeScript
 - MongoDB/Mongoose
 - JWT Authentication
+- Jest
 
 Development:
 - ESLint
 - Docker
-- Vitest
 
 ## Development Status
 
