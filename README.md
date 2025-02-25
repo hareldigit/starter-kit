@@ -82,7 +82,8 @@ The application will be available at:
 In the project root:
 - `npm run dev` - Runs both frontend and backend in development mode
 - `npm run install:all` - Installs dependencies for both frontend and backend
-
+- `npm run format` - Format for both frontend and backend
+- 
 In the backend directory:
 - `npm run dev` - Starts the development backend using tsx watch
 - `npm build` - Builds the TypeScript code to JavaScript
@@ -90,17 +91,24 @@ In the backend directory:
 - `npm run test` - Runs tests using Jest
 - `npm run lint` - Runs ESLint
 - `npm run lint:fix` - Fixes ESLint issues
+- `npm run format` - Format prettier issues
 
 In the frontend directory:
 - `npm run dev` - Starts the Vite development backend
 - `npm run test` - Runs tests
 - `npm run lint` - Runs ESLint
 - `npm run lint:fix` - Fixes ESLint issues
+- `npm run format` - Format prettier issues
 
+## CI/CD
+
+### GITHUB ACTIONS
+GitHub Actions CI configured for frontend and backend, running automatically on pull requests.
 ## Local CI
 - **Husky:** Manages Git hooks to run checks before commits
 - **lint-staged**: Runs linters only on staged files for faster checks
 - Automatically installed with `npm install`
+
 
 ## Technologies Used
 
