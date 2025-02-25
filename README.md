@@ -97,6 +97,15 @@ In the frontend directory:
 - `npm run lint` - Runs ESLint
 - `npm run lint:fix` - Fixes ESLint issues
 
+## Local CI Setup
+
+The project uses a local Continuous Integration setup with:
+
+### Local CI
+- **Husky:** Manages Git hooks to run checks before commits
+- **lint-staged**: Runs linters only on staged files for faster checks
+- Automatically installed with `npm install`
+
 ## Technologies Used
 
 Frontend:
@@ -119,6 +128,8 @@ Backend:
 Development:
 - ESLint
 - Docker
+- Husky (Git hooks)
+- lint-staged
 
 ## Development Status
 
@@ -127,6 +138,7 @@ Current features implemented:
 - Development environment configuration
 - MongoDB connection
 - Basic backend setup
+- Local CI with Husky and lint-staged
 
 Next steps:
 - Implement authentication
