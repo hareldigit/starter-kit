@@ -1,16 +1,16 @@
 version: 2
 updates:
   - package-ecosystem: "npm"
-    directory: "/server"
+    directory: "/backend"
     schedule:
       interval: "weekly"
 
   - package-ecosystem: "npm"
-    directory: "/client"
+    directory: "/frontend"
     schedule:
       interval: "weekly"
 
   - package-ecosystem: "docker"
-    directory: "/server"
+    directory: "/backend"
     schedule:
       interval: "monthly"

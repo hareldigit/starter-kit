@@ -1,6 +1,6 @@
 # Starter Kit App
 
-A full-stack Todo application built with React (Client) and Node.js/Express (Server).
+A full-stack Todo application built with React (Frontend) and Node.js/Express (Backend).
 
 ## Prerequisites
 
@@ -12,21 +12,21 @@ A full-stack Todo application built with React (Client) and Node.js/Express (Ser
 
 ```
 starter-kit/
-├── server/         # Express/Node.js server
-├── client/         # React/Vite application
+├── backend/         # Express/Node.js backend
+├── frontend/         # React/Vite application
 └── docker-compose.yml
 ```
 
 ## Project setups
 
-The project uses different development setups for client and server:
+The project uses different development setups for frontend and backend:
 
-### Client
-- Uses Vite as the build tool and development server
+### Frontend
+- Uses Vite as the build tool and development backend
 - Testing with Vitest
 - Hot Module Replacement (HMR) for fast development
 
-### Server
+### Backend
 - Standard Node.js TypeScript setup
 - Development using tsx
 - Production build using TypeScript compiler (tsc)
@@ -47,7 +47,7 @@ docker run -d -p 27017:27017 --name todo-mongodb mongo:latest
 
 3. **Setup Environment Variables**
 
-In the server directory, create `.env`:
+In the backend directory, create `.env`:
 ```
 PORT=5001
 MONGODB_URI=mongodb://localhost:27017/starter-kit
@@ -57,12 +57,12 @@ NODE_ENV=''
 
 4. **Install Dependencies**
 ```bash
-# Install server dependencies
-cd server
+# Install backend dependencies
+cd backend
 npm install
 
-# Install client dependencies
-cd ../client
+# Install frontend dependencies
+cd ../frontend
 npm install
 ```
 
@@ -73,33 +73,33 @@ npm run dev
 ```
 
 The application will be available at:
-- Client: http://localhost:5173
-- Server: http://localhost:5001
+- Frontend: http://localhost:5173
+- Backend: http://localhost:5001
 - MongoDB: localhost:27017
 
 ## Available Scripts
 
 In the project root:
-- `npm run dev` - Runs both client and server in development mode
-- `npm run install:all` - Installs dependencies for both client and server
+- `npm run dev` - Runs both frontend and backend in development mode
+- `npm run install:all` - Installs dependencies for both frontend and backend
 
-In the server directory:
-- `npm run dev` - Starts the development server using tsx watch
+In the backend directory:
+- `npm run dev` - Starts the development backend using tsx watch
 - `npm build` - Builds the TypeScript code to JavaScript
 - `npm start` - Runs the built JavaScript code in production mode using tsx
 - `npm run test` - Runs tests using Jest
 - `npm run lint` - Runs ESLint
 - `npm run lint:fix` - Fixes ESLint issues
 
-In the client directory:
-- `npm run dev` - Starts the Vite development server
+In the frontend directory:
+- `npm run dev` - Starts the Vite development backend
 - `npm run test` - Runs tests
 - `npm run lint` - Runs ESLint
 - `npm run lint:fix` - Fixes ESLint issues
 
 ## Technologies Used
 
-Client:
+Frontend:
 - React
 - TypeScript
 - Vite
@@ -108,7 +108,7 @@ Client:
 - React Query
 - React Router
 
-Server:
+Backend:
 - Node.js
 - Express
 - TypeScript
@@ -126,10 +126,10 @@ Current features implemented:
 - Project structure setup
 - Development environment configuration
 - MongoDB connection
-- Basic server setup
+- Basic backend setup
 
 Next steps:
 - Implement authentication
 - Create Todo CRUD operations
-- Design and implement client UI
+- Design and implement frontend UI
 - Add testing
