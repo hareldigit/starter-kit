@@ -1,4 +1,4 @@
-name: PR Checks
+name: Backend CI
 
 on:
   pull_request:
@@ -33,7 +33,7 @@ jobs:
             ${{ runner.OS }}-node-
 
       - name: Install dependencies
-        run: npm ci
+        run: npm i
 
       - name: Run linter
         if: matrix.task == 'lint'
