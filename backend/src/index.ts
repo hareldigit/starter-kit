@@ -2,7 +2,7 @@ import { app } from './app';
 import { connectDB } from './db';
 import { getConfig } from './config';
 import * as process from 'node:process';
-//todo
+
 const startServer = async () => {
   try {
     const config = getConfig();
