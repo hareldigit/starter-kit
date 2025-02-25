@@ -11,7 +11,7 @@
     "coverage": "jest --coverage",
     "lint": "eslint src --ext .ts --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint src --ext .ts --fix",
-    "format": "prettier --write \"src/**/*.{ts,js,json}\" --config ./.prettierrc"
+    "format": "prettier --write \"src/**/*.{ts,js,json}\""
   },
   "lint-staged": {
     "*": "prettier --write",

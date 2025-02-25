@@ -45,4 +45,4 @@ jobs:
 
       - name: Run Prettier
         if: matrix.task == 'prettier'
-        run: npx prettier "src/**/*.{ts,js,json}" --config ./.prettierrc --check
+        run: npx prettier "src/**/*.{ts,js,json}" --check
