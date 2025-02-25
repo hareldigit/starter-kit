@@ -1,0 +1,9 @@
+echo 'running frontend CI'
+cd frontend
+npx lint-staged
+npm run build
+
+echo 'running backend CI'
+cd ../backend
+npx lint-staged
+npm run build

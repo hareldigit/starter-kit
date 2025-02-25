@@ -14,6 +14,10 @@
     "format": "prettier --write \"src/**/*.{ts,js,json}\" --config ./.prettierrc",
     "prepare": "husky"
   },
+  "lint-staged": {
+    "*": "prettier --write",
+    "*.ts": "eslint --fix"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
