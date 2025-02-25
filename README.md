@@ -2,6 +2,7 @@
 
 A full-stack Todo application built with React (Frontend) and Node.js/Express (Backend).
 
+
 ## Prerequisites
 
 - Node.js (v18 or higher)
@@ -31,6 +32,7 @@ The project uses different development setups for frontend and backend:
 - Development using tsx
 - Production build using TypeScript compiler (tsc)
 - Testing with Jest
+
 
 ## Getting Started
 
@@ -134,6 +136,9 @@ Development:
 - Docker
 - Husky (Git hooks)
 - lint-staged
+
+## Documentation
+- [Adding New Entities](https://github.com/hareldigit/starter-kit/wiki/Adding%E2%80%90New%E2%80%90Entities)
 
 ## Development Status
 
