@@ -9,6 +9,10 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "lint-staged": {
+    "*": "prettier --write",
+    ".{ts,tsx}": "eslint --fix"
+  },
   "dependencies": {
     "@tanstack/react-query": "^5.66.9",
     "@tanstack/react-router": "^1.111.7",

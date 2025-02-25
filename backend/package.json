@@ -13,6 +13,10 @@
     "lint:fix": "eslint src --ext .ts --fix",
     "format": "prettier --write \"src/**/*.{ts,js,json}\" --config ./.prettierrc"
   },
+  "lint-staged": {
+    "*": "prettier --write",
+    "*.ts": "eslint --fix"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
