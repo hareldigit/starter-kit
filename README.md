@@ -49,23 +49,12 @@ docker run -d -p 27017:27017 --name todo-mongodb mongo:latest
 
 3. **Setup Environment Variables**
 
-In the backend directory, create `.env`:
-```
-PORT=5001
-MONGODB_URI=mongodb://localhost:27017/starter-kit
-JWT_SECRET=your-secret-key
-NODE_ENV=''
-```
+In the backend directory, copy the `.env.example` file to `.env`.
 
 4. **Install Dependencies**
 ```bash
-# Install backend dependencies
-cd backend
-npm install
-
-# Install frontend dependencies
-cd ../frontend
-npm install
+# Install both frontend/backend dependencies
+npm run install:all
 ```
 
 5. **Run the Application**
@@ -76,7 +65,7 @@ npm run dev
 
 The application will be available at:
 - Frontend: http://localhost:5173
-- Backend: http://localhost:5001
+- Backend: http://localhost:8080
 - MongoDB: localhost:27017
 
 ## Available Scripts
@@ -85,7 +74,7 @@ In the project root:
 - `npm run dev` - Runs both frontend and backend in development mode
 - `npm run install:all` - Installs dependencies for both frontend and backend
 - `npm run format` - Format for both frontend and backend
-- 
+-
 In the backend directory:
 - `npm run dev` - Starts the development backend using tsx watch
 - `npm build` - Builds the TypeScript code to JavaScript

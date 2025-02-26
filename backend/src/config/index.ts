@@ -28,7 +28,7 @@ const loadConfig = (): Config => {
 
   const envConfig = {
     env: process.env.NODE_ENV || 'development',
-    port: parseInt(process.env.PORT || '5000', 10),
+    port: parseInt(process.env.PORT || '8080', 10),
     mongodb: {
       uri: process.env.MONGODB_URI || '',
       options: {},
@@ -38,7 +38,7 @@ const loadConfig = (): Config => {
       expiresIn: '1d',
     },
     cors: {
-      origin: (process.env.CORS_ORIGIN || 'http://localhost:3000').split(','),
+      origin: (process.env.CORS_ORIGIN || 'http://localhost:5173').split(','),
       credentials: true,
     },
   };
