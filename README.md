@@ -51,7 +51,7 @@ docker run -d -p 27017:27017 --name todo-mongodb mongo:latest
 
 In the backend directory, copy the `.env.example` file to `.env`.
 
-1. **Install Dependencies**
+4. **Install Dependencies**
 ```bash
 # Install both frontend/backend dependencies
 npm run install:all
