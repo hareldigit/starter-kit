@@ -1,0 +1,4 @@
+# .prettierignore
+*.env
+.env.*
+.prettierignore
